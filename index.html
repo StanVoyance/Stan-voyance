@@ -365,7 +365,26 @@
 </head>
 
 <body>
+<div style="text-align:center; padding:15px;">
+  <label for="langue">🌐 Langue : </label>
 
+  <select id="langue" onchange="changerLangue(this.value)">
+    <option value="fr">Français</option>
+    <option value="en">English</option>
+    <option value="es">Español</option>
+    <option value="pt">Português</option>
+  </select>
+</div>
+
+<script>
+function changerLangue(langue) {
+  if (langue === "fr") {
+    location.href = "https://translate.google.com/translate?sl=auto&tl=fr&u=" + encodeURIComponent(location.href);
+  } else {
+    location.href = "https://translate.google.com/translate?sl=auto&tl=" + langue + "&u=" + encodeURIComponent(location.href);
+  }
+}
+</script>
 <header>
   <div class="container">
     <nav>
