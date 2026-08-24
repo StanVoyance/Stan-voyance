@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Stan Voyance — Voyance, Tarot & Consultations</title>
+  <meta name="description" content="Stan Voyance — Consultations de voyance, tarot et accompagnement personnalisé. Rendez-vous 24h/24.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background: #080612;
+      color: #f8f1dc;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(8, 6, 18, 0.95);
+      border-bottom: 1px solid #8d6b2f;
+      backdrop-filter: blur(10px);
+    }
+
+    nav {
+      min-height: 75px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      color: #d9b45b;
+    }
+
+    .logo span {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 4px;
+      color: #ddd2b5;
+      text-align: center;
+    }
+
+    .menu {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+
+    .menu a {
+      color: #eee5ca;
+      transition: 0.3s;
+    }
+
+    .menu a:hover {
+      color: #d9b45b;
+    }
+
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      background:
+        radial-gradient(circle at center, rgba(91, 50, 130, 0.35), transparent 55%),
+        linear-gradient(135deg, #090614, #160b28, #080612);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .moon {
+      font-size: 85px;
+      margin-bottom: 20px;
+      filter: drop-shadow(0 0 25px rgba(217,180,91,0.45));
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 8vw, 78px);
+      color: #d9b45b;
+      letter-spacing: 4px;
+      margin-bottom: 10px;
+    }
+
+    .hero h2 {
+      font-size: clamp(20px, 4vw, 32px);
+      font-weight: normal;
+      margin-bottom: 20px;
+      color: #f4ead0;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: 0 auto 30px;
+      color: #d7d0c2;
+      font-size: 18px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 25px;
+      border-radius: 30px;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      transition: 0.3s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-gold {
+      background: #d9b45b;
+      color: #17100a;
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-3px);
+      background: #f0d27d;
+    }
+
+    .btn-whatsapp {
+      background: #25d366;
+      color: white;
+    }
+
+    .btn-whatsapp:hover {
+      transform: translateY(-3px);
+      background: #1ebe5d;
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      color: #d9b45b;
+      font-size: 38px;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #bdb5a8;
+    }
+
+    .services {
+      background: #0d0918;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .card {
+      background: linear-gradient(145deg, #171027, #0f0b1c);
+      border: 1px solid #4f3b64;
+      border-radius: 18px;
+      padding: 35px 25px;
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-7px);
+      border-color: #d9b45b;
+    }
+
+    .card-icon {
+      font-size: 48px;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      color: #d9b45b;
+      font-size: 25px;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      font-size: 30px;
+      color: #fff4d4;
+      margin: 20px 0;
+      font-weight: bold;
+    }
+
+    .card p {
+      color: #c7c0b4;
+      min-height: 75px;
+    }
+
+    .about {
+      background: #080612;
+      text-align: center;
+    }
+
+    .about-content {
+      max-width: 800px;
+      margin: auto;
+      color: #d0c9bb;
+      font-size: 18px;
+    }
+
+    .booking {
+      background: linear-gradient(135deg, #140b23, #090612);
+    }
+
+    .booking-box {
+      max-width: 700px;
+      margin: auto;
+      background: #110c1e;
+      padding: 35px;
+      border-radius: 20px;
+      border: 1px solid #5d4775;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 7px;
+      color: #d9b45b;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 14px;
+      border-radius: 8px;
+      border: 1px solid #554663;
+      background: #080612;
+      color: white;
+      font-size: 16px;
+      outline: none;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #d9b45b;
+    }
+
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .payment {
+      background: #0d0918;
+      text-align: center;
+    }
+
+    .payment-box {
+      max-width: 850px;
+      margin: auto;
+      padding: 35px;
+      border: 1px solid #4f3b64;
+      border-radius: 20px;
+      background: #120d20;
+    }
+
+    .payment-methods {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 25px 0;
+    }
+
+    .payment-method {
+      padding: 12px 18px;
+      border: 1px solid #6c557d;
+      border-radius: 25px;
+      color: #f3e8cb;
+    }
+
+    .contact {
+      text-align: center;
+      background: #080612;
+    }
+
+    .contact p {
+      margin-bottom: 20px;
+      color: #ccc4b7;
+    }
+
+    footer {
+      background: #05040b;
+      border-top: 1px solid #382943;
+      text-align: center;
+      padding: 25px;
+      color: #8f8795;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+    }
+
+    .notice {
+      margin-top: 20px;
+      font-size: 13px;
+      color: #928a9b;
+      text-align: center;
+    }
+
+    @media (max-width: 800px) {
+      .menu {
+        display: none;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: 80vh;
+      }
+
+      .booking-box,
+      .payment-box {
+        padding: 25px 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <a href="#accueil" class="logo">
+        ✦ STAN
+        <span>VOYANCE</span>
+      </a>
+
+      <ul class="menu">
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#rendezvous">Rendez-vous</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="accueil">
+  <div class="container">
+
+    <div class="moon">☾ ✦</div>
+
+    <h1>STAN VOYANCE</h1>
+
+    <h2>Voyance • Tarot • Consultation</h2>
+
+    <p>
+      Découvrez une approche personnalisée de la voyance et du tarot.
+      Prenez le temps d'éclairer vos questions et d'explorer les possibilités
+      qui s'offrent à vous.
+    </p>
+
+    <div class="buttons">
+      <a href="#rendezvous" class="btn btn-gold">
+        Prendre rendez-vous
+      </a>
+
+      <a
+        href="https://wa.me/33746490129"
+        target="_blank"
+        class="btn btn-whatsapp">
+        💬 WhatsApp
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<section class="services" id="services">
+
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Mes consultations</h2>
+      <p>Choisissez la consultation qui vous correspond.</p>
+    </div>
+
+    <div class="cards">
+
+      <div class="card">
+        <div class="card-icon">🔮</div>
+        <h3>Voyance</h3>
+
+        <p>
+          Une consultation complète pour explorer vos questions
+          et obtenir un éclairage personnalisé.
+        </p>
+
+        <div class="price">90 CHF</div>
+
+        <a href="#rendezvous" class="btn btn-gold">
+          Réserver
+        </a>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🃏</div>
+        <h3>Tarot</h3>
+
+        <p>
+          Lecture des cartes et interprétation personnalisée
+          autour de votre situation.
+        </p>
+
+        <div class="price">45 CHF</div>
+
+        <a href="#rendezvous" class="btn btn-gold">
+          Réserver
+        </a>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">✨</div>
+        <h3>Consultation</h3>
+
+        <p>
+          Un échange personnalisé pour prendre le temps
+          de parler de votre situation.
+        </p>
+
+        <div class="price">25 CHF</div>
+
+        <a href="#rendezvous" class="btn btn-gold">
+          Réserver
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="about">
+
+  <div class="container">
+
+    <div class="section-title">
+      <h2>À propos de Stan Voyance</h2>
+    </div>
+
+    <div class="about-content">
+      <p>
+        Bienvenue chez <strong>Stan Voyance</strong>.
+        Le site vous permet de choisir votre consultation,
+        de demander un rendez-vous et de nous contacter directement
+        par WhatsApp.
+      </p>
+
+      <br>
+
+      <p>
+        Les consultations sont disponibles <strong>24h/24</strong>,
+        selon les disponibilités.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="booking" id="rendezvous">
+
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Prendre rendez-vous</h2>
+      <p>
+        Remplissez le formulaire puis envoyez votre demande sur WhatsApp.
+      </p>
+    </div>
+
+    <div class="booking-box">
+
+      <form id="bookingForm">
+
+        <div class="form-group">
+          <label for="name">Votre prénom</label>
+          <input
+            type="text"
+            id="name"
+            placeholder="Votre prénom"
+            required>
+        </div>
+
+        <div class="form-group">
+          <label for="service">Choisissez votre consultation</label>
+
+          <select id="service" required>
+            <option value="">-- Choisir --</option>
+            <option value="Voyance - 90 CHF">Voyance — 90 CHF</option>
+            <option value="Tarot - 45 CHF">Tarot — 45 CHF</option>
+            <option value="Consultation - 25 CHF">Consultation — 25 CHF</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="date">Date souhaitée</label>
+          <input
+            type="date"
+            id="date"
+            required>
+        </div>
+
+        <div class="form-group">
+          <label for="time">Heure souhaitée</label>
+          <input
+            type="time"
+            id="time"
+            required>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Votre demande</label>
+
+          <textarea
+            id="message"
+            placeholder="Écrivez votre demande ou votre question..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-whatsapp" style="width:100%;">
+          💬 Envoyer ma demande sur WhatsApp
+        </button>
+
+      </form>
+
+      <p class="notice">
+        Après l'envoi, vous serez redirigé vers WhatsApp pour confirmer
+        votre demande de rendez-vous.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="payment">
+
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Paiement</h2>
+      <p>Plusieurs moyens de paiement disponibles.</p>
+    </div>
+
+    <div class="payment-box">
+
+      <p>
+        Après confirmation de votre rendez-vous, les informations
+        nécessaires au paiement vous seront communiquées.
+      </p>
+
+      <div class="payment-methods">
+        <div class="payment-method">PayPal</div>
+        <div class="payment-method">Virement immédiat</div>
+        <div class="payment-method">Wero</div>
+        <div class="payment-method">Carte bancaire</div>
+      </div>
+
+      <a
+        href="https://wa.me/33746490129"
+        target="_blank"
+        class="btn btn-whatsapp">
+        Demander les informations de paiement
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="contact" id="contact">
+
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Contact</h2>
+      <p>Une question ? Contactez Stan Voyance directement.</p>
+    </div>
+
+    <p>📱 WhatsApp : +33 7 46 49 01 29</p>
+
+    <a
+      href="https://wa.me/33746490129"
+      target="_blank"
+      class="btn btn-whatsapp">
+      💬 Contacter sur WhatsApp
+    </a>
+
+    <p style="margin-top:20px;">
+      Disponibilité : <strong>24h / 24h</strong>
+    </p>
+
+  </div>
+
+</section>
+
+<footer>
+  © 2026 Stan Voyance — Tous droits réservés.
+</footer>
+
+<script>
+  document.getElementById("bookingForm").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const service = document.getElementById("service").value;
+    const date = document.getElementById("date").value;
+    const time = document.getElementById("time").value;
+    const message = document.getElementById("message").value;
+
+    const text =
+      "Bonjour Stan Voyance 👋%0A%0A" +
+      "Je souhaite prendre rendez-vous.%0A%0A" +
+      "Prénom : " + encodeURIComponent(name) + "%0A" +
+      "Consultation : " + encodeURIComponent(service) + "%0A" +
+      "Date souhaitée : " + encodeURIComponent(date) + "%0A" +
+      "Heure souhaitée : " + encodeURIComponent(time) + "%0A" +
+      "Ma demande : " + encodeURIComponent(message);
+
+    window.open(
+      "https://wa.me/33746490129?text=" + text,
+      "_blank"
+    );
+  });
+</script>
+
+</body>
+</html>
